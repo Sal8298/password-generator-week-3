@@ -19,7 +19,27 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
+function generatePassword() {
+  var passwordLength = window.prompt("How many characters do you want your password to contain?");
+  if (passwordLength === null) {
+    return;
+  } else if (isNaN(passwordLength)) {
+    window.alert("You must choose a number!")
+    return "Please try again.";
+  } else if (passwordLength < 8 || passwordLength > 128) { 
+    window.alert("You must choose a number between 8 and 128.")
+    return "Please try again.";
+  }
 
+
+var userWantsNumber = window.confirm("Do you want to have numbers in your password?");
+var userWantsUpperCase = window.confirm("Do you want to have uppercase letters in your password?");
+var userWantsUpperCase = window.confirm("Do you want to have lowercase letters in your password?");
+var userWantsUpperCase = window.confirm("Do you want to have special characters in your password?");
+
+
+
+}
 /*
 
 Choose length of password
