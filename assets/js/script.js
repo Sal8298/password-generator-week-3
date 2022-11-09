@@ -7,11 +7,20 @@ var specialChar = ["!", "@", "#", "$","%", "&", "*", ";"];
 var passwordLength;
 var Randomiser;
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
 function generatePassword() {
   passwordLength = window.prompt("How many characters do you need your password to contain?");
-  if (passwordLength === null) {
-    return;
-  } else if (isNaN(passwordLength)) {
+    if (isNaN(passwordLength)) {
     window.alert("You must choose a number!")
     return "Please try again.";
   } else if (passwordLength < 8 || passwordLength > 128) { 
@@ -27,63 +36,34 @@ var userNeedsSpecialChar = window.confirm("Do you need to have special character
 var userWantsOptions =[];
 
 if (userNeedsNumber === true) {
-  userWantsOptions.push(number);
+  userWantsOptions = userWantsOptions.concat(number);
 }
 
 if (userNeedsUpperCase === true) {
-  userWantsOptions.push(upperCase);
+  userWantsOptions = userWantsOptions.concat(upperCase);
 }
 
 if (userNeedsLowerCase === true) {
-  userWantsOptions.push(lowerCase);
+  userWantsOptions = userWantsOptions.concat(lowerCase);
 }
 
 if (userNeedsSpecialChar === true) {
-  userWantsOptions.push(specialChar);
+  userWantsOptions = userWantsOptions.concat(specialChar);
 }
 
 // if (userWantsOptions.length === 0) {
 //   userNeedsLowerCase.push(lowerCase);
 // }
 
-var myPassword = [];
+var password = "";
 
-for (var index = 0; index < passwordLength.length; index++) {
+for (var index = 0; index < passwordLength; index++) {
   Randomiser = Math.floor(Math.random() * userWantsOptions.length)
-  myPassword.push(userWantsOptions[Randomiser]);
-  
+  password += userWantsOptions[Randomiser];
+
 } if (userWantsOptions.length === 0) {
   return "You must select at least one character type. Please try again."
 }
-return myPassword.toLocaleString();
+console.log(password);
+return password; 
 }
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-    passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-/*
-
-Choose length of password
-
-Choose numbers
-
-choose uppercase
-
-choooses lowercase
-
-choose specialchars
-
-generate password
-
-*/
