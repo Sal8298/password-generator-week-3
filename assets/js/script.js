@@ -6,7 +6,6 @@ var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var specialChar = ["!", "@", "#", "$","%", "&", "*", ";"];
 var passwordLength;
 var Randomiser;
-var userWantsOptions =[];
 
 // Write Password function initiates on Event "Click"
 function writePassword() {
@@ -34,6 +33,7 @@ var userNeedsUpperCase = window.confirm("Do you need to have uppercase letters i
 var userNeedsLowerCase = window.confirm("Do you need to have lowercase letters in your password?");
 var userNeedsSpecialChar = window.confirm("Do you need to have special characters in your password?");
 
+var userWantsOptions =[];
 // If statements to add the apopriately chosen char arrays to Options superset array.
 if (userNeedsNumber) {
   userWantsOptions = userWantsOptions.concat(number);
