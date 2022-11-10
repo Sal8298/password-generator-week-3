@@ -6,6 +6,7 @@ var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var specialChar = ["!", "@", "#", "$","%", "&", "*", ";"];
 var passwordLength;
 var Randomiser;
+var userWantsOptions =[];
 
 // Write password to the #password input
 function writePassword() {
@@ -20,10 +21,8 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   passwordLength = window.prompt("How many characters do you need your password to contain?");
-    if (isNaN(passwordLength)) {
-    window.alert("You must choose a number!")
-    return "Please try again.";
-  } else if (passwordLength < 8 || passwordLength > 128) { 
+    
+    if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) { 
     window.alert("You must choose a number between 8 and 128.")
     return "Please try again.";
   }
@@ -33,37 +32,52 @@ var userNeedsUpperCase = window.confirm("Do you need to have uppercase letters i
 var userNeedsLowerCase = window.confirm("Do you need to have lowercase letters in your password?");
 var userNeedsSpecialChar = window.confirm("Do you need to have special characters in your password?");
 
-var userWantsOptions =[];
+// var userWantsOptions =[];
 
-if (userNeedsNumber === true) {
+if (userNeedsNumber) {
   userWantsOptions = userWantsOptions.concat(number);
 }
 
-if (userNeedsUpperCase === true) {
+if (userNeedsUpperCase) {
   userWantsOptions = userWantsOptions.concat(upperCase);
 }
 
-if (userNeedsLowerCase === true) {
+if (userNeedsLowerCase) {
   userWantsOptions = userWantsOptions.concat(lowerCase);
 }
 
-if (userNeedsSpecialChar === true) {
+if (userNeedsSpecialChar) {
   userWantsOptions = userWantsOptions.concat(specialChar);
+} 
+
+if (userWantsOptions.length === 0) {
+  return "You must select at least one character type. Please try again."
 }
 
-// if (userWantsOptions.length === 0) {
-//   userNeedsLowerCase.push(lowerCase);
-// }
-
-var password = "";
+var myPassword = "";
 
 for (var index = 0; index < passwordLength; index++) {
   Randomiser = Math.floor(Math.random() * userWantsOptions.length)
-  password += userWantsOptions[Randomiser];
+  myPassword += userWantsOptions[Randomiser];
 
-} if (userWantsOptions.length === 0) {
-  return "You must select at least one character type. Please try again."
+} 
+console.log(myPassword);
+return myPassword; 
 }
-console.log(password);
-return password; 
-}
+
+/*
+Parese sub-arrays and rerun until at least one of each selected type appear in the password.
+
+function RandomMath() {
+  for (var index = 0; index < passwordLength; index++) {
+  Randomiser = Math.floor(Math.random() * userWantsOptions.length)
+  password += userWantsOptions[Randomiser];
+  }
+} 
+
+if (userNeedsNumber === true) 
+for (let index = 0; index < password.length; index++) {
+  var numberCount = number.includes(password.charAt(index));
+  console.log(numberCount); 
+
+  */
