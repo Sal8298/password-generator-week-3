@@ -1,5 +1,5 @@
-# Sal-password-generator-refactor-week-3
-- Refactored password Generator
+# sal-password-generator-refactor-week-3
+Refactored password Generator
 
 ## Description
 
@@ -14,9 +14,9 @@
 
 ## Installation
 
- Refactored Password generator at at https://sal8298.github.io/Sal-Portfolio/
+- Refactored Password generator at at https://sal8298.github.io/sal-password-generator-refactor-week-3/
 
-Repository containing the code for Refactored Password generator can be found at https://github.com/Sal8298/Sal-Portfolio
+- Repository containing the code for Refactored Password generator can be found at https://github.com/Sal8298/sal-password-generator-refactor-week-3
 
 ## Usage
 This is a screenshot of the the page.
@@ -38,7 +38,7 @@ This is a screenshot of the the page.
 
 MIT License
 
-Copyright (c) [2022] [Sal-password-generator-refactor-week-3]
+Copyright (c) [2022] [sal-password-generator-refactor-week-3]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
